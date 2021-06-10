@@ -13,8 +13,9 @@ router.get('/mood', (req, res, next)=>{
 
 //add mood
 router.post('/mood', (req, res, next)=>{
+    let date= new Date();
     let newMood = new Mood({
-        date: req.body.date,
+        date: date,
         mood: req.body.mood,
         description: req.body.description
     });
