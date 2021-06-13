@@ -14,16 +14,16 @@ router.get('/mood', (req, res, next)=>{
 //add mood
 router.post('/mood', (req, res, next)=>{
     let date= new Date();
-    let newMood = new Mood({
+    const newMood = new Mood({
         date: date,
         mood: req.body.mood,
         description: req.body.description
     });
-
+console.log(newMood)
     newMood.save((err, mood)=>{
         if(err)
         {
-            res.json({msg: 'Failed to add mood.'});
+            res.json({msg: err});
         }
         else{
             res.json({msg: 'Mood added successfully.'});
